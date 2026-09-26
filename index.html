@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobiqo — Mobile Shop & Repair</title>
+  <!-- Font Awesome 6.5.1 STABLE -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: #0f172a;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---------- HEADER ---------- */
+    .top-bar {
+      background: #0b2b4a;
+      color: #cbd5e1;
+      font-size: 0.85rem;
+      padding: 8px 0;
+      text-align: center;
+    }
+
+    .top-bar i {
+      color: #60a5fa;
+      margin-right: 6px;
+    }
+
+    header {
+      background: white;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.7rem;
+      letter-spacing: -0.02em;
+      color: #0b2b4a;
+      text-decoration: none;
+    }
+
+    .logo i {
+      color: #2563eb;
+      font-size: 1.9rem;
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, #0b2b4a, #2563eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-weight: 500;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1e293b;
+      transition: color 0.2s;
+      font-size: 0.98rem;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+      padding: 60px 0 70px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1 1 450px;
+    }
+
+    .hero-text .badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e40af;
+      font-weight: 600;
+      font-size: 0.8rem;
+      padding: 6px 16px;
+      border-radius: 40px;
+      margin-bottom: 20px;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-text h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: #0b2b4a;
+      margin-bottom: 18px;
+    }
+
+    .hero-text h1 span {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #475569;
+      max-width: 540px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-image {
+      flex: 1 1 350px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 32px;
+      box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ---------- SECTION TITLES ---------- */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #0b2b4a;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .section-sub {
+      color: #64748b;
+      font-size: 1rem;
+      margin-bottom: 36px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .section-header a {
+      color: #2563eb;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .section-header a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- BUTTONS ---------- */
+    .btn-primary {
+      background: #2563eb;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px -8px rgba(37, 99, 235, 0.4);
+    }
+
+    .btn-primary i {
+      line-height: 1;
+      display: inline-block;
+      font-size: 0.95rem;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #cbd5e1;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: #0f172a;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .btn-outline:hover {
+      border-color: #2563eb;
+      background: #f8fafc;
+    }
+
+    /* ---------- OFFERS ---------- */
+    .offers {
+      padding: 60px 0;
+    }
+
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .offer-card {
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px 24px;
+      color: white;
+      box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.15);
+      transition: 0.25s;
+      cursor: pointer;
+    }
+
+    .offer-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .offer-card.gradient-1 {
+      background: linear-gradient(145deg, #2563eb, #1e3a8a);
+    }
+
+    .offer-card.gradient-2 {
+      background: linear-gradient(145deg, #7c3aed, #4c1d95);
+    }
+
+    .offer-card.gradient-3 {
+      background: linear-gradient(145deg, #0b2b4a, #1e293b);
+    }
+
+    .offer-card .offer-tag {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      align-self: flex-start;
+      margin-bottom: 16px;
+      letter-spacing: 0.3px;
+    }
+
+    .offer-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .offer-card p {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      margin-bottom: 16px;
+    }
+
+    .offer-card .offer-btn {
+      background: white;
+      color: #0b2b4a;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      align-self: flex-start;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+    }
+
+    .offer-card .offer-btn:hover {
+      background: #f1f5f9;
+      transform: scale(1.02);
+    }
+
+    .offer-card .offer-btn i {
+      line-height: 1;
+    }
+
+    /* ---------- BUY & SELL OLD PHONE ---------- */
+    .buy-sell {
+      padding: 60px 0;
+      background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .buy-sell-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    .buy-sell-card {
+      background: white;
+      border-radius: 28px;
+      padding: 40px 32px;
+      border: 1px solid #e2e8f0;
+      text-align: center;
+      transition: 0.25s;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    }
+
+    .buy-sell-card:hover {
+      border-color: #2563eb;
+      box-shadow: 0 25px 40px -15px rgba(37, 99, 235, 0.15);
+      transform: translateY(-4px);
+    }
+
+    .buy-sell-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.4rem;
+      margin: 0 auto 24px;
+      line-height: 1;
+    }
+
+    .buy-sell-icon.buy-icon {
+      background: #dbeafe;
+      color: #2563eb;
+    }
+
+    .buy-sell-icon.sell-icon {
+      background: #dcfce7;
+      color: #16a34a;
+    }
+
+    .buy-sell-icon i {
+      line-height: 1;
+      display: inline-block;
+    }
+
+    .buy-sell-card h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #0b2b4a;
+      margin-bottom: 12px;
+    }
+
+    .buy-sell-card p {
+      color: #64748b;
+      font-size: 1rem;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .buy-sell-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .buy-sell-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: #334155;
+    }
+
+    .buy-sell-features li i {
+      color: #2563eb;
+      font-size: 1rem;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .buy-sell-card .btn-primary {
+      width: 100%;
+      margin-top: auto;
+      padding: 14px 24px;
+      font-size: 1rem;
+    }
+
+    .buy-sell-card .btn-sell {
+      background: #16a34a;
+    }
+
+    .buy-sell-card .btn-sell:hover {
+      background: #15803d;
+      box-shadow: 0 12px 20px -8px rgba(22, 163, 74, 0.5);
+    }
+
+    /* ---------- PRODUCTS ---------- */
+    .products {
+      padding: 60px 0;
+      background: #f8fafc;
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .filter-tab {
+      background: white;
+      border: 1px solid #e2e8f0;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.2s;
+      color: #334155;
+    }
+
+    .filter-tab:hover {
+      border-color: #2563eb;
+      color: #2563eb;
+    }
+
+    .filter-tab.active {
+      background: #2563eb;
+      border-color: #2563eb;
+      color: white;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 28px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 22px;
+      padding: 18px;
+      border: 1px solid #e2e8f0;
+      transition: 0.25s;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .product-card:hover {
+      border-color: #2563eb;
+      box-shadow: 0 20px 30px -12px rgba(37, 99, 235, 0.15);
+      transform: translateY(-4px);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: #2563eb;
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 30px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      z-index: 2;
+    }
+
+    .product-badge.sale {
+      background: #dc2626;
+    }
+
+    .product-badge.new {
+      background: #16a34a;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 170px;
+      object-fit: contain;
+      margin-bottom: 16px;
+      border-radius: 14px;
+      background: #f1f5f9;
+      padding: 10px;
+    }
+
+    /* Company name (brand) */
+    .product-brand {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #2563eb;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    /* Phone name */
+    .product-card h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #0b2b4a;
+    }
+
+    .product-specs {
+      font-size: 0.78rem;
+      color: #64748b;
+      margin-bottom: 4px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .product-specs span {
+      background: #f1f5f9;
+      padding: 2px 10px;
+      border-radius: 30px;
+    }
+
+    /* Display-only note */
+    .product-display-only {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      font-style: italic;
+      margin-top: 4px;
+    }
+
+    /* ---------- SERVICES ---------- */
+    .services {
+      padding: 60px 0;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      border-color: #2563eb;
+      box-shadow: 0 20px 30px -12px rgba(37, 99, 235, 0.12);
+      transform: translateY(-4px);
+    }
+
+    .service-icon {
+      background: #dbeafe;
+      color: #2563eb;
+      width: 64px;
+      height: 64px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.9rem;
+      margin: 0 auto 20px;
+      line-height: 1;
+    }
+
+    .service-icon i {
+      line-height: 1;
+      display: inline-block;
+    }
+
+    .service-card h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0b2b4a;
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      color: #64748b;
+      font-size: 0.9rem;
+      margin-bottom: 22px;
+    }
+
+    .service-card .btn-primary {
+      width: 100%;
+      margin-top: auto;
+      padding: 12px 18px;
+      font-size: 0.95rem;
+    }
+
+    /* ---------- ABOUT / TRUST ---------- */
+    .about {
+      padding: 60px 0;
+      background: #0b2b4a;
+      color: white;
+    }
+
+    .about .section-title {
+      color: white;
+    }
+
+    .about .section-sub {
+      color: #94a3b8;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+      text-align: center;
+    }
+
+    .about-item i {
+      font-size: 2.2rem;
+      color: #60a5fa;
+      margin-bottom: 16px;
+      display: inline-block;
+      line-height: 1;
+    }
+
+    .about-item h4 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .about-item p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact {
+      padding: 60px 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+    }
+
+    .contact-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: 0.25s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-card:hover {
+      border-color: #2563eb;
+      background: white;
+      box-shadow: 0 20px 30px -12px rgba(37, 99, 235, 0.1);
+    }
+
+    .contact-icon-wrap {
+      width: 64px;
+      height: 64px;
+      border-radius: 20px;
+      background: #dbeafe;
+      color: #2563eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 18px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .contact-icon-wrap i {
+      font-size: 1.8rem;
+      line-height: 1;
+      display: inline-block;
+    }
+
+    .contact-icon-wrap.whatsapp-bg {
+      background: #dcfce7;
+      color: #25D366;
+    }
+
+    .contact-card h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0b2b4a;
+      margin-bottom: 6px;
+    }
+
+    .contact-card p {
+      color: #64748b;
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+    }
+
+    .contact-btn {
+      width: 100%;
+      justify-content: center;
+      padding: 12px 18px;
+      font-size: 0.9rem;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .contact-btn i {
+      font-size: 1rem;
+      line-height: 1;
+      display: inline-block;
+    }
+
+    .whatsapp-btn {
+      background: #25D366 !important;
+    }
+
+    .whatsapp-btn:hover {
+      background: #1ebe5b !important;
+      box-shadow: 0 12px 20px -8px rgba(37, 211, 102, 0.5);
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: #0b2b4a;
+      color: #94a3b8;
+      padding: 48px 0 24px;
+      margin-top: 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 36px;
+      margin-bottom: 40px;
+    }
+
+    .footer-grid h4 {
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .footer-grid a {
+      display: block;
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+
+    .footer-grid a:hover {
+      color: white;
+    }
+
+    .footer-icon {
+      width: 20px;
+      display: inline-block;
+      text-align: center;
+      margin-right: 8px;
+      font-size: 1rem;
+      color: #60a5fa;
+      line-height: 1;
+    }
+
+    .footer-grid a:hover .footer-icon {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #1e293b;
+      padding-top: 24px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      .hero-text h1 {
+        font-size: 2.4rem;
+      }
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .section-title {
+        font-size: 1.7rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-links {
+        gap: 14px;
+        font-size: 0.85rem;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn-primary, .btn-outline {
+        justify-content: center;
+      }
+      .products-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .product-image {
+        height: 120px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div class="container">
+      <i class="fas fa-truck"></i> Free delivery on orders above ₹999 &nbsp;|&nbsp;
+      <i class="fas fa-tools"></i> Same-day repair service &nbsp;|&nbsp;
+      <i class="fas fa-phone-alt"></i> +91 98765 43210
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <a href="#" class="logo">
+          <i class="fas fa-mobile-alt"></i>
+          <span>Mobiqo</span>
+        </a>
+        <div class="nav-links">
+          <a href="#offers">Offers</a>
+          <a href="#buy-sell">Buy &amp; Sell</a>
+          <a href="#products">Phones</a>
+          <a href="#services">Repairs</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <div class="badge"><i class="fas fa-bolt"></i> Your trusted mobile shop</div>
+        <h1>Latest phones, <span>best repairs</span> in town</h1>
+        <p>Buy the newest smartphones, sell your old phone for instant cash, and get expert repairs — all at Mobiqo. Genuine products, unbeatable prices, and same-day service.</p>
+        <div class="hero-actions">
+          <a href="#products" class="btn-primary"><i class="fas fa-mobile-alt"></i> Shop phones</a>
+          <a href="#buy-sell" class="btn-outline"><i class="fas fa-exchange-alt"></i> Sell old phone</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=500&fit=crop&auto=format" alt="Latest smartphones at Mobiqo" style="width:100%; max-width:420px;">
+      </div>
+    </div>
+  </section>
+
+  <!-- Offers -->
+  <section class="offers" id="offers">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">🔥 Today's offers</h2>
+          <p class="section-sub">Grab these deals before they're gone</p>
+        </div>
+        <a href="#">View all offers <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="offers-grid">
+        <div class="offer-card gradient-1">
+          <span class="offer-tag">Limited time</span>
+          <h3>20% off screen repair</h3>
+          <p>Any brand, any model. Same-day service.</p>
+          <button class="offer-btn"><i class="fas fa-tag"></i> Show at shop</button>
+        </div>
+        <div class="offer-card gradient-2">
+          <span class="offer-tag">Festival special</span>
+          <h3>Free case + glass</h3>
+          <p>On every smartphone purchase above ₹15,000.</p>
+          <button class="offer-btn"><i class="fas fa-gift"></i> Grab deal</button>
+        </div>
+        <div class="offer-card gradient-3">
+          <span class="offer-tag">Exchange bonus</span>
+          <h3>Extra ₹2,000 off</h3>
+          <p>Exchange your old phone and save more.</p>
+          <button class="offer-btn"><i class="fas fa-exchange-alt"></i> Get quote</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUY & SELL OLD PHONE -->
+  <section class="buy-sell" id="buy-sell">
+    <div class="container">
+      <div class="section-header" style="justify-content:center; text-align:center;">
+        <div>
+          <h2 class="section-title">🔄 Buy &amp; Sell Old Phones</h2>
+          <p class="section-sub">Upgrade smartly — get instant cash for your old device or buy a certified pre-owned phone</p>
+        </div>
+      </div>
+
+      <div class="buy-sell-grid">
+
+        <!-- BUY OLD PHONE -->
+        <div class="buy-sell-card">
+          <div class="buy-sell-icon buy-icon">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <h3>Buy Old Phone</h3>
+          <p>Certified pre-owned smartphones at unbeatable prices. Tested, cleaned, and ready to use.</p>
+          <ul class="buy-sell-features">
+            <li><i class="fas fa-check-circle"></i> 100% quality checked &amp; certified</li>
+            <li><i class="fas fa-check-circle"></i> 6-month warranty on every device</li>
+            <li><i class="fas fa-check-circle"></i> All brands available — iPhone, Samsung, OnePlus</li>
+            <li><i class="fas fa-check-circle"></i> No hidden charges, transparent pricing</li>
+          </ul>
+          <button class="btn-primary"><i class="fas fa-search"></i> Browse old phones</button>
+        </div>
+
+        <!-- SELL OLD PHONE -->
+        <div class="buy-sell-card">
+          <div class="buy-sell-icon sell-icon">
+            <i class="fas fa-hand-holding-usd"></i>
+          </div>
+          <h3>Sell Old Phone</h3>
+          <p>Get instant cash for your old smartphone. Free pickup, on-the-spot payment, and data wipe.</p>
+          <ul class="buy-sell-features">
+            <li><i class="fas fa-check-circle"></i> Best price guaranteed in the market</li>
+            <li><i class="fas fa-check-circle"></i> Free doorstep pickup &amp; inspection</li>
+            <li><i class="fas fa-check-circle"></i> Instant cash or bank transfer</li>
+            <li><i class="fas fa-check-circle"></i> 100% safe data wiping before resale</li>
+          </ul>
+          <button class="btn-primary btn-sell"><i class="fas fa-tag"></i> Get instant quote</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="products" id="products">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">📱 Latest smartphones</h2>
+          <p class="section-sub">Genuine products with full warranty</p>
+        </div>
+        <a href="#">View all <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="filter-tabs">
+        <button class="filter-tab active">All</button>
+        <button class="filter-tab">Apple</button>
+        <button class="filter-tab">Samsung</button>
+        <button class="filter-tab">OnePlus</button>
+        <button class="filter-tab">Xiaomi</button>
+        <button class="filter-tab">Google</button>
+        <button class="filter-tab">Nothing</button>
+        <button class="filter-tab">Realme</button>
+        <button class="filter-tab">Vivo</button>
+        <button class="filter-tab">Oppo</button>
+      </div>
+
+      <div class="products-grid">
+
+        <!-- Apple -->
+        <div class="product-card">
+          <span class="product-badge new">New</span>
+          <img class="product-image" src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=300&h=300&fit=crop&auto=format" alt="iPhone 15">
+          <div class="product-brand">Apple</div>
+          <h4>iPhone 15</h4>
+          <div class="product-specs">
+            <span>128GB</span>
+            <span>5G</span>
+            <span>A16</span>
+          </div>
+          <div class="product-display-only">Display only</div>
+        </div>
+
+        <div class="product-card">
+          <img class="product-image" src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=300&h=300&fit=crop&auto=format" alt="iPhone 15 Pro Max">
+          <div class="product-brand">Apple</div>
+          <h4>iPhone 15 Pro Max</h4>
+          <div class="product-specs">
+            <span>256GB</span>
+            <span>5G</span>
+            <span>A17 Pro</span>
+          </div>
+          <div class="product-display-only">Display only</div>
+        </div>
+
+        <!-- Samsung -->
+        <div class="product-card">
+          <span class="product-badge sale">-15%</span>
+          <img class="product-image" src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=300&h=300&fit=crop&auto=format" alt="Galaxy S24">
+          <div class="product-brand">Samsung</div>
+          <h4>Galaxy S24</h4>
+          <div class="product-specs">
+            <span>256GB</span>
+            <span>5G</span>
+            <span>SD 8 Gen 3</span>
+          </div>
+          <div class="product-display-only">Display only</div>
+        </div>
+
+        <div class="product-card">
+          <img class="product-image" src="https://images.unsplash.com/photo-1678911820864-e2c567c655d7?w=300&h=300&fit=crop&auto=format" alt="Galaxy Z Fold 5">
+          <div class="product-brand">Samsung</div>
+          <h4>Galaxy Z Fold 5</h4>
+          <div class="product-specs">
+            <span>512GB</span>
+            <span>5G</span>
+            <span>Foldable</span>
+          </div>
+          <div class="product-display-only">Display only</div>
+        </div>
+
+        <!-- OnePlus -->
+        <div class="product-card">
+          <img class="product-image" src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?w=300&h=300&fit=crop&auto=format" alt="OnePlus 12">
+          <div class="product-brand">OnePlus</div>
+          <h4>OnePlus 12</h4>
+          <div class="product-specs">
+            <span>256GB</span>
+            <span>5G</span>
+            <span>SD 8 Gen 3</span>
+          </div>
+          <div class="product-display-only">Display only</div>
+        </div>
+
+        <div class="product-card">
+          <span class="product-badge new">New</span>
+          <img class="product-image" src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=300&h=300&fit=crop&auto=format" alt="OnePlus Nord CE 4">
+          <div class="product-brand">OnePlus</div>
+          <h4>Nord CE 4</h4>
+          <div class="product-specs">
+            <span>128GB</span>
+            <span>5G</span>
+            <span>SD 7 Gen 3</span>
+          </div>
+          <div class="product-display-only">Display only</div>
+        </div>
+
+        <!-- Xiaomi -->
+        <div class="product-card">
+          <span class="product-badge sale">-10%</span>
+          <img class="product-image" src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=300&h=300&fit=crop&auto=format" alt="Redmi Note 13 Pro">
+          <div class="product-brand">Xiaomi</div>
+          <h4>Redmi Note 13 Pro</h4>
+          <div class="product-specs">
+            <span>128GB</span>
+            <span>5G</span>
+            <span>SD 7s Gen 2</span>
+          </div>
+          <div class="product-display-only">Display only</div>
+        </div>
+
+        <div class="product-card">
+          <img class="product-image" src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300&h=300&fit=crop&auto=format" alt="Xiaomi 14">
+          <div class="product-brand">Xiaomi</div>
+          <h4>Xiaomi 14</h4>
+          <div class="product-specs">
+            <span>256GB</span>
+            <span>5G</span>
+            <span>SD 8 Gen 3</span>
+          </div>
+          <div class="product-display-only">Display only</div>
+        </div>
+
+        <!-- Google -->
+        <div class="product-card">
+          <img class="product-image" src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=300&h=300&fit=crop&auto=format" alt="Pixel 8 Pro">
+          <div class="product-brand">Google</div>
+          <h4>Pixel 8 Pro</h4>
+          <div class="product-specs">
+            <span>128GB</span>
+            <span>5G</span>
+            <span>Tensor G3</span>
+          </div>
+          <div class="product-display-only">Display only</div>
+        </div>
+
+        <div class="product-card">
+          <span class="product-badge new">New</span>
+          <img class="product-image" src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=300&h=300&fit=crop&auto=format" alt="Pixel 8a">
+          <div class="product-brand">Google</div>
+          <h4>Pixel 8a</h4>
+          <div class="product-specs">
+            <span>128GB</span>
+            <span>5G</span>
+            <span>Tensor G3</span>
+          </div>
+          <div class="product-display-only">Display only</div>
+        </div>
+
+        <!-- Nothing -->
+        <div class="product-card">
+          <img class="product-image" src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=300&h=300&fit=crop&auto=format" alt="Nothing Phone (2)">
+          <div class="product-brand">Nothing</div>
+          <h4>Phone (2)</h4>
+          <div class="product-specs">
+            <span>256GB</span>
+            <span>5G</span>
+            <span>SD 8+ Gen 1</span>
+          </div>
+          <div class="product-display-only">Display only</div>
+        </div>
+
+        <div class="product-card">
+          <span class="product-badge new">New</span>
+          <img class="product-image" src="https://images.unsplash.com/photo-1678911820864-e2c567c655d7?w=300&h=300&fit=crop&auto=format" alt="Nothing Phone (2a)">
+          <div class="product-brand">Nothing</div>
+          <h4>Phone (2a)</h4>
+          <div class="product-specs">
+            <span>128GB</span>
+            <span>5G</span>
+            <span>Dimensity 7200</span>
+          </div>
+          <div class="product-display-only">Display only</div>
+        </div>
+
+        <!-- Realme -->
+        <div class="product-card">
+          <img class="product-image" src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?w=300&h=300&fit=crop&auto=format" alt="Realme GT 5 Pro">
+          <div class="product-brand">Realme</div>
+          <h4>Realme GT 5 Pro</h4>
+          <div class="product-specs">
+            <span>256GB</span>
+            <span>5G</span>
+            <span>SD 8 Gen 3</span>
+          </div>
+          <div class="product-display-only">Display only</div>
+        </div>
+
+        <div class="product-card">
+          <span class="product-badge sale">-12%</span>
+          <img class="product-image" src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=300&h=300&fit=crop&auto=format" alt="Realme Narzo 70 Pro">
+          <div class="product-brand">Realme</div>
+          <h4>Narzo 70 Pro</h4>
+          <div class="product-specs">
+            <span>128GB</span>
+            <span>5G</span>
+            <span>Dimensity 7050</span>
+          </div>
+          <div class="product-display-only">Display only</div>
+        </div>
+
+        <!-- Vivo -->
+        <div class="product-card">
+          <img class="product-image" src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300&h=300&fit=crop&auto=format" alt="Vivo X100 Pro">
+          <div class="product-brand">Vivo</div>
+          <h4>X100 Pro</h4>
+          <div class="product-specs">
+            <span>256GB</span>
+            <span>5G</span>
+            <span>Dimensity 9300</span>
+          </div>
+          <div class="product-display-only">Display only</div>
+        </div>
+
+        <div class="product-card">
+          <img class="product-image" src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=300&h=300&fit=crop&auto=format" alt="Vivo V30 Pro">
+          <div class="product-brand">Vivo</div>
+          <h4>V30 Pro</h4>
+          <div class="product-specs">
+            <span>256GB</span>
+            <span>5G</span>
+            <span>Dimensity 8200</span>
+          </div>
+          <div class="product-display-only">Display only</div>
+        </div>
+
+        <!-- Oppo -->
+        <div class="product-card">
+          <span class="product-badge new">New</span>
+          <img class="product-image" src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=300&h=300&fit=crop&auto=format" alt="Oppo Find X7 Ultra">
+          <div class="product-brand">Oppo</div>
+          <h4>Find X7 Ultra</h4>
+          <div class="product-specs">
+            <span>256GB</span>
+            <span>5G</span>
+            <span>SD 8 Gen 3</span>
+          </div>
+          <div class="product-display-only">Display only</div>
+        </div>
+
+        <div class="product-card">
+          <img class="product-image" src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=300&h=300&fit=crop&auto=format" alt="Oppo Reno 11 Pro">
+          <div class="product-brand">Oppo</div>
+          <h4>Reno 11 Pro</h4>
+          <div class="product-specs">
+            <span>256GB</span>
+            <span>5G</span>
+            <span>Dimensity 8200</span>
+          </div>
+          <div class="product-display-only">Display only</div>
+        </div>
+
+        <!-- Accessories -->
+        <div class="product-card">
+          <img class="product-image" src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300&h=300&fit=crop&auto=format" alt="AirPods Pro">
+          <div class="product-brand">Apple</div>
+          <h4>AirPods Pro (2nd gen)</h4>
+          <div class="product-specs">
+            <span>ANC</span>
+            <span>USB-C</span>
+          </div>
+          <div class="product-display-only">Display only</div>
+        </div>
+
+        <div class="product-card">
+          <span class="product-badge new">New</span>
+          <img class="product-image" src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=300&h=300&fit=crop&auto=format" alt="Power Bank">
+          <div class="product-brand">Mobiqo</div>
+          <h4>20000mAh Power Bank</h4>
+          <div class="product-specs">
+            <span>Fast charge</span>
+            <span>Type-C</span>
+          </div>
+          <div class="product-display-only">Display only</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">🛠️ Repair services</h2>
+          <p class="section-sub">Expert repairs with genuine parts &amp; warranty</p>
+        </div>
+        <a href="#contact">Book appointment <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+          <h4>Screen replacement</h4>
+          <p>All brands, original quality. 30-min service.</p>
+          <button class="btn-primary"><i class="fas fa-calendar-check"></i> Book</button>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-battery-full"></i></div>
+          <h4>Battery replacement</h4>
+          <p>Genuine batteries with 6-month warranty.</p>
+          <button class="btn-primary"><i class="fas fa-calendar-check"></i> Book</button>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-water"></i></div>
+          <h4>Water damage repair</h4>
+          <p>Ultrasonic cleaning + component-level repair.</p>
+          <button class="btn-primary"><i class="fas fa-calendar-check"></i> Book</button>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-microchip"></i></div>
+          <h4>Software &amp; unlocking</h4>
+          <p>OS reinstall, virus removal, network unlock.</p>
+          <button class="btn-primary"><i class="fas fa-calendar-check"></i> Book</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Trust -->
+  <section class="about" id="about">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;">Why choose Mobiqo?</h2>
+      <p class="section-sub" style="text-align:center; margin-bottom:48px;">Trusted by thousands of happy customers</p>
+      <div class="about-grid">
+        <div class="about-item">
+          <i class="fas fa-users"></i>
+          <h4>10,000+</h4>
+          <p>Happy customers</p>
+        </div>
+        <div class="about-item">
+          <i class="fas fa-star"></i>
+          <h4>4.8★</h4>
+          <p>Average rating</p>
+        </div>
+        <div class="about-item">
+          <i class="fas fa-tools"></i>
+          <h4>5,000+</h4>
+          <p>Devices repaired</p>
+        </div>
+        <div class="about-item">
+          <i class="fas fa-clock"></i>
+          <h4>30 min</h4>
+          <p>Express repair</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header" style="justify-content:center; text-align:center;">
+        <div>
+          <h2 class="section-title">📞 Visit or contact us</h2>
+          <p class="section-sub">We're here to help — call, WhatsApp, or walk in</p>
+        </div>
+      </div>
+      <div class="contact-grid">
+
+        <!-- Call -->
+        <div class="contact-card">
+          <div class="contact-icon-wrap">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <h4>Call us</h4>
+          <p>+91 98765 43210</p>
+          <a href="tel:+919876543210" class="btn-primary contact-btn">
+            <i class="fas fa-phone"></i> Call now
+          </a>
+        </div>
+
+        <!-- WhatsApp -->
+        <div class="contact-card">
+          <div class="contact-icon-wrap whatsapp-bg">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <h4>WhatsApp</h4>
+          <p>Chat with us instantly</p>
+          <a href="https://wa.me/919876543210" class="btn-primary contact-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> Message us
+          </a>
+        </div>
+
+        <!-- Visit -->
+        <div class="contact-card">
+          <div class="contact-icon-wrap">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h4>Visit shop</h4>
+          <p>123 Main Road, Your City</p>
+          <a href="https://maps.google.com/?q=123+Main+Road" target="_blank" class="btn-primary contact-btn">
+            <i class="fas fa-directions"></i> Get directions
+          </a>
+        </div>
+
+        <!-- Timings -->
+        <div class="contact-card">
+          <div class="contact-icon-wrap">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h4>Timings</h4>
+          <p>Mon–Sat: 10am – 9pm<br>Sunday: 11am – 6pm</p>
+          <a href="tel:+919876543210" class="btn-primary contact-btn">
+            <i class="fas fa-phone"></i> Call to confirm
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#" class="logo" style="color:white; margin-bottom:16px;">
+            <i class="fas fa-mobile-alt" style="color:#60a5fa;"></i>
+            <span style="background:white; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Mobiqo</span>
+          </a>
+          <p style="font-size:0.9rem; max-width:260px;">Your one-stop shop for smartphones, accessories, expert repairs, and buying/selling old phones.</p>
+        </div>
+        <div>
+          <h4>Shop</h4>
+          <a href="#products">Smartphones</a>
+          <a href="#products">Accessories</a>
+          <a href="#buy-sell">Buy Old Phone</a>
+          <a href="#buy-sell">Sell Old Phone</a>
+          <a href="#offers">Offers</a>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <a href="#contact">Contact us</a>
+          <a href="#services">Repairs</a>
+          <a href="#">Warranty</a>
+          <a href="#">Returns</a>
+        </div>
+        <div>
+          <h4>Follow us</h4>
+          <a href="#"><i class="fab fa-instagram footer-icon"></i> Instagram</a>
+          <a href="#"><i class="fab fa-facebook footer-icon"></i> Facebook</a>
+          <a href="#"><i class="fab fa-whatsapp footer-icon"></i> WhatsApp</a>
+          <a href="#"><i class="fab fa-youtube footer-icon"></i> YouTube</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 Mobiqo. All rights reserved. · Made with ❤️ for mobile shops
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
